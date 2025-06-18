@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday! 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(#ffccf9, #ffe5ec);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      padding: 2rem;
+      background: #ff8fab;
+      color: white;
+      font-size: 2.5rem;
+      font-family: 'Pacifico', cursive;
+      animation: slideInDown 1.2s ease-out;
+    }
+
+    @keyframes slideInDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    section {
+      padding: 2rem;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .message-box {
+      background: #fff0f6;
+      padding: 1rem;
+      border-radius: 12px;
+      margin: 1rem auto;
+      max-width: 600px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .photo-gallery img {
+      width: 200px;
+      margin: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .photo-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #ff8fab;
+      padding: 1rem;
+      color: white;
+    }
+
+    .center {
+      text-align: center;
+      padding: 2em;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      color: #ff1493;
+      animation: pop 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    .button {
+      background-color: #ff69b4;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      font-size: 16px;
+      margin: 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #ff1493;
+    }
+
+    .quiz-section {
+      display: none;
+    }
+
+    .question {
+      font-size: 1.5em;
+      margin: 1em 0;
+    }
+
+    .answers button {
+      display: block;
+      margin: 0.5em auto;
+    }
+
+    #result {
+      font-size: 1.8em;
+      color: #d60087;
+      margin-top: 2em;
+    }
+
+    .confetti {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      background-image: url("https://cdn.pixabay.com/photo/2017/02/01/10/29/confetti-2027633_960_720.png");
+      background-size: cover;
+      opacity: 0.2;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 1000px; }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/02/08/audio_58dc8f647c.mp3?filename=joayo-bts-piano-cover-140524.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="confetti"></div>
+
+  <header>
+    🎉 Happy Birthday Chikku echii! 🎂
+  </header>
+
+  <section>
+    <h2>💌 A Message From Me</h2>
+    <div class="message-box">
+      <p>Dear Chikku echi💜,</p>
+      <p>Even though we're miles apart, my heart is right there with you today. You've always been my best friend, my secret keeper, and my biggest cheerleader. I hope this little surprise brings a smile to your face!</p>
+      <p>Love you forever, <br/> Chinnu ❤️</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Us 📸</h2>
+    <div class="photo-gallery">
+      <img src="IMG-20150829-WA0029.jpg" alt="Memory 1">
+      <img src="IMG_20250608_084834.jpg" alt="Memory 2">
+      <img src="IMG-20250618-WA0004.jpg" alt="Memory 3">
+      <img src="IMG-20250618-WA0005.jpg" alt="Memory 4">
+      <p>And like everytime, you held my hand. It wasn’t just a hand you held—it was trust, comfort, it’s a quiet promise to guide, protect, and be there through every stumble, every laugh, and every step forward in life.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>📦 Your Gift Is on the Way!</h2>
+    <p>Hope it brings you as much joy as you bring into my life! 🎁✨</p>
+  </section>
+
+  <section class="center" id="start-screen">
+    <h1>Happy Birthday, Queen! 🎉</h1>
+    <p>Let’s find out what kind of birthday royalty you are…</p>
+    <button class="button" onclick="startQuiz()">Start the Fun</button>
+  </section>
+
+  <section class="center quiz-section" id="quiz">
+    <div id="question" class="question"></div>
+    <div id="answers" class="answers"></div>
+  </section>
+
+  <div class="center" id="result"></div>
+
+  <footer>
+   Thank you so much for everything!
+   Made with 💖 just for you! ✨
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        q: "What’s your birthday vibe?",
+        a: ["Diva mode, obviously", "BTS Mode", "Total party chaos", "Shopping mode"]
+      },
+      {
+        q: "Pick a gift you’d want:",
+        a: ["Bouquet 💐 with Chocolates 🍫", "Harry Potter Plushies", "BTS Concert", "Just sleep"]
+      },
+      {
+        q: "How do you feel about being 20?",
+        a: [
+          "Mentally on vacation, physically 20🙃",
+          "Basically a teenager with a fancier number😄",
+          "Queen of 2 decades 👑",
+          "Like a vintage wine — only getting better with age 🍷"
+        ]
+      }
+    ];
+
+    let current = 0;
+    let score = [0, 0, 0, 0];
+
+    function startQuiz() {
+      document.getElementById("start-screen").style.display = "none";
+      document.getElementById("quiz").style.display = "block";
+      showQuestion();
+    }
+
+    function showQuestion() {
+      const q = questions[current];
+      document.getElementById("question").innerText = q.q;
+      const answers = document.getElementById("answers");
+      answers.innerHTML = "";
+
+      q.a.forEach((answer, i) => {
+        const btn = document.createElement("button");
+        btn.className = "button";
+        btn.innerText = answer;
+        btn.onclick = () => {
+          score[i]++;
+          current++;
+          if (current < questions.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        };
+        answers.appendChild(btn);
+      });
+    }
+
+    function showResult() {
+      document.getElementById("quiz").style.display = "none";
+      const max = score.indexOf(Math.max(...score));
+      const titles = [
+        "👑 Royal Sass Queen – Drama. Glamour. You bring both!",
+        "😌 Chill Queen – You rule with calmness and BTS playlists",
+        "🎉 Chaos Commander – You party like Jungkook on sugar",
+        "😭 Sentimental Softie – You’re soft, sweet, and 100% lovable"
+      ];
+      document.getElementById("result").innerHTML =
+        `<h2>${titles[max]}</h2>
+        <p>Wishing you a magical day filled with joy, laughter. Stay blessed😇. <b>Borahae!💜</b></p>`;
+    }
+  </script>
+</body>
+</html>
+
